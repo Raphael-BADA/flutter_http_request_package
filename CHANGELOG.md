@@ -9,3 +9,11 @@
 ## 0.0.3
 
 - adding another usage example
+
+## 0.0.3
+
+- updating usage example
+
+## 1.0.0
+
+- stable version
