@@ -22,7 +22,6 @@ void main() async {
     Map<String, dynamic> body = {
       "title": 'foo',
       "body": 'bar',
-      "userId": 1,
     };
     final response = await httpRequest.init(
         path: "posts", requestType: RequestType.post, body: body);
@@ -36,7 +35,6 @@ void main() async {
     Map<String, dynamic> body = {
       "title": 'foo',
       "body": 'bar',
-      "userId": 1,
     };
     final response = await httpRequest.init(
         path: "posts/1",

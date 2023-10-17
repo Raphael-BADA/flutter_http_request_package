@@ -11,21 +11,17 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: "The http_request_f package simplifies HTTP request operations in Dart and Flutter. Our package allows you to perform HTTP requests, automatically handle JSON serialization and deserialization, and conduct various URI operations, all using a single function
+"The http_request_f package simplifies HTTP request operations in Dart and Flutter. Our package allows you to perform HTTP requests, automatically handle JSON serialization and deserialization, and conduct various URI operations, all using a single function
 
 ## Features
 
-TODO: Simplified HTTP Requests: Make HTTP GET, POST, PUT, DELETE, and other requests with a single, straightforward function call.
+Simplified HTTP Requests: Make HTTP GET, POST, PUT, DELETE, and other requests with a single, straightforward function call.
 Streamlined JSON Handling: Our package automates JSON serialization and deserialization, enabling you to work directly with Dart objects.
 Effortless URI Manipulation: Easily manage URI operations, including building, modifying, and handling URL parameters.
 Customization: Customize requests by adding headers, cookies, and other parameters tailored to your use case.
 Easy Response Handling: Obtain HTTP responses and process them effortlessly, whether they contain JSON, text, or other formats.
-Supports Dart and Flutter: Our package is designed to work seamlessly with both pure Dart and Flutter, offering great flexibility..
 
 ## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
 
 ```dart
 import 'package:http_request_f/http_request_f.dart';
@@ -52,16 +48,14 @@ void main() async {
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
 import 'package:http_request_f/http_request_f.dart';
 import 'package:http_request_f/request_status/error_type.dart';
 
-void main() async {
-  final HttpRequest httpRequest =
+final HttpRequest httpRequest =
       HttpRequest(baseUrl: "https://jsonplaceholder.typicode.com");
+void main() async {
+
 
   //get Request
   try {
@@ -124,7 +118,3 @@ void main() async {
 ```
 
 ## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.

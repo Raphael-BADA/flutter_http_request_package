@@ -1,7 +1,7 @@
 name: http_request_f
-description: A new Flutter package project.
-version: 0.0.1
-homepage:
+description: The http_request_f package simplifies HTTP request operations in Dart and Flutter
+version: 0.0.2
+homepage: https://github.com/RaphaelBada07/flutter_http_request_package.git
 
 environment:
   sdk: ">=3.1.0 <4.0.0"
@@ -18,8 +18,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-documentation:
-  entrypoint: README.md
+documentation: https://github.com/RaphaelBada07/flutter_http_request_package.git
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

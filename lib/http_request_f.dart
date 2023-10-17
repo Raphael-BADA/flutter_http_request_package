@@ -142,7 +142,9 @@ class HttpRequest {
         default:
           response = await http.get(url, headers: headers);
       }
-      if (response.statusCode != 200) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return jsonDecode(response.body);
+      } else {
         print(response.body);
       }
 
@@ -161,7 +163,7 @@ class HttpRequest {
           response.statusCode == 502 ||
           response.statusCode == 503) {
         throw ServerException('server error');
-      } else if (response.statusCode != 200) {
+      } else if (response.statusCode != 200 && response.statusCode != 201) {
         throw ApiException('Request failed with status ${response.statusCode}');
       }
       print(response.body);
