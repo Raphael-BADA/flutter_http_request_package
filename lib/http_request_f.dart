@@ -25,8 +25,11 @@ class HttpRequest {
   };
 
   String baseUrl;
-
-  HttpRequest({required this.baseUrl, Map<String, dynamic>? headers}) {
+  Function onUnauthorized;
+  HttpRequest(
+      {required this.baseUrl,
+      required this.onUnauthorized,
+      Map<String, dynamic>? headers}) {
     if (headers != null) {
       httpHeaders.addAll(headers);
     }
@@ -151,6 +154,7 @@ class HttpRequest {
       if (response.statusCode == 400 || response.statusCode == 422) {
         throw BadRequestException('Bad Request');
       } else if (response.statusCode == 401 || response.statusCode == 403) {
+        onUnauthorized();
         throw UnauthorizedException('Unauthorized');
       } else if (response.statusCode == 404 ||
           response.statusCode == 301 ||
@@ -173,6 +177,36 @@ class HttpRequest {
       throw SocketException('Socket Error: ${e.message}');
     } catch (e) {
       throw UnknownApiException('Unknown Error: $e');
+    }
+  }
+}
+
+class RequestError {
+  static const badRequest = "BAD_REQUEST";
+  static const unauthorized = "UNAUTHORIZED";
+  static const socketError = "SOCKET_ERROR";
+  static const apiException = "API_EXCEPTION";
+  static const unknown = "UNKNOWN";
+  static const serverError = "SERVER_ERROR";
+  static const badMethod = "BAD_METHOD";
+}
+
+class ErrorType {
+  static get(Object e) {
+    if (e is BadRequestException) {
+      return RequestError.badRequest;
+    } else if (e is UnauthorizedException) {
+      return RequestError.unauthorized;
+    } else if (e is ServerException) {
+      return RequestError.serverError;
+    } else if (e is BadMethodException) {
+      return RequestError.badMethod;
+    } else if (e is SocketException) {
+      return RequestError.socketError;
+    } else if (e is ApiException) {
+      return RequestError.apiException;
+    } else {
+      return RequestError.unknown;
     }
   }
 }

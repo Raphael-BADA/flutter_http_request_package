@@ -1,8 +1,10 @@
 import 'package:http_request_f/http_request_f.dart';
-import 'package:http_request_f/request_status/error_type.dart';
 
-final HttpRequest httpRequest =
-    HttpRequest(baseUrl: "https://jsonplaceholder.typicode.com");
+final HttpRequest httpRequest = HttpRequest(
+    baseUrl: "https://jsonplaceholder.typicode.com",
+    onUnauthorized: () {
+      //Do something when request is unauthorized
+    });
 getData() async {
   //get Request
   try {
@@ -65,10 +67,9 @@ deleteData() async {
 
 //set token
 setToken() async {
-  Future<bool> tokenSet = httpRequest.setAuthToken(
+  httpRequest.setAuthToken(
       token:
           "your-token"); // the default token type is Bearer and this token is automaticaly added to to headers to perform requests
-
   try {
     Map<String, dynamic> body = {
       "title": 'foo',
