@@ -72,7 +72,7 @@ class HttpRequest {
     required String path,
     required RequestType requestType,
     Map body = const {},
-    Encoding? encoding,
+    Encoding? encoding = utf8,
   }) async {
     path = path.replaceAll(RegExp(r'^/+|/+$'), '');
     final url = Uri.parse('$baseUrl/$path');

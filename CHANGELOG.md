@@ -20,6 +20,10 @@
 
 ## 1.1.0
 
+## 1.1.0
+
+- Add utf8 encoding
+
 - add somes features as call custom fonction to execute when the request is unauthorized by adding directly the function in the instanciation
 - no need to import the error type file to get api error response
 
