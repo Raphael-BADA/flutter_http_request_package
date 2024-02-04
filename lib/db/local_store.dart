@@ -1,5 +1,6 @@
 // Save a string value
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class LocalStore {
   static saveString(String key, String value) async {
@@ -31,6 +32,12 @@ class LocalStore {
     prefs.setStringList(key, value);
   }
 
+// Save an object value
+  static saveObject(String key, String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(key, json.encode(value));
+  }
+
 // Retrieve a string value
   static Future<String?> getStringData(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -53,6 +60,12 @@ class LocalStore {
   static Future<double?> getDoubleData(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getDouble(key);
+  }
+
+  // Retrieve an object value
+  static Future<String?> getObjectData(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return json.decode(prefs.getString(key));
   }
 
 // Retrieve a list of strings
