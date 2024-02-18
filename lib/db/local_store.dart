@@ -65,7 +65,7 @@ class LocalStore {
   // Retrieve an object value
   static Future<String?> getObjectData(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return json.decode(prefs.getString(key));
+    return json.decode(prefs.getString(key) ?? "");
   }
 
 // Retrieve a list of strings

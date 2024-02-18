@@ -30,3 +30,6 @@
 ## 1.1.0
 
 - update example
+## 1.3.0
+
+- add sharedPreference function to save objects
